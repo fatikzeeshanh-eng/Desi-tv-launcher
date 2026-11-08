@@ -1,38 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="350dp"
+    android:layout_width="480dp"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="#E61C1C1E"
-    android:padding="24dp">
+    android:background="#EE1C1C1E"
+    android:padding="32dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Control Center"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="16dp"/>
-
-    <Button
-        android:id="@+id/ccBtnWallpaper"
+    <!-- Header -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Change Wallpaper Style"
-        android:layout_marginBottom="8dp"/>
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="24dp">
 
-    <Button
-        android:id="@+id/ccBtnStandby"
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Apple TV Control Center"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🇮🇳 tvOS 4.4"
+            android:textColor="#8E8E93"
+            android:textSize="13sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <!-- Row 1: Wallpaper & Standby Toggles -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Toggle Standby Mode"
-        android:layout_marginBottom="8dp"/>
+        android:orientation="horizontal"
+        android:layout_marginBottom="14dp">
 
-    <Button
-        android:id="@+id/ccBtnSystemSettings"
+        <Button
+            android:id="@+id/ccBtnWallpaper"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:text="🖼 Change Wallpaper"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="@drawable/tvos_card_background"
+            android:focusable="true"/>
+
+        <View android:layout_width="14dp" android:layout_height="match_parent"/>
+
+        <Button
+            android:id="@+id/ccBtnStandby"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:text="⏰ 5-Feature Standby"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="@drawable/tvos_card_background"
+            android:focusable="true"/>
+    </LinearLayout>
+
+    <!-- Row 2: Audio/Display & Sleep Mode Toggles -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Android Settings" />
+        android:orientation="horizontal"
+        android:layout_marginBottom="14dp">
+
+        <Button
+            android:id="@+id/ccBtnAudio"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:text="🔊 Audio Output"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="@drawable/tvos_card_background"
+            android:focusable="true"/>
+
+        <View android:layout_width="14dp" android:layout_height="match_parent"/>
+
+        <Button
+            android:id="@+id/ccBtnSleep"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:text="🌙 Sleep / Standby"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="@drawable/tvos_card_background"
+            android:focusable="true"/>
+    </LinearLayout>
+
+    <!-- Row 3: System Settings & Default Home Switcher -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/ccBtnSystemSettings"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:text="⚙ Android Settings"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="@drawable/tvos_card_background"
+            android:focusable="true"/>
+
+        <View android:layout_width="14dp" android:layout_height="match_parent"/>
+
+        <Button
+            android:id="@+id/ccBtnHomeDefault"
+            android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:layout_weight="1"
+            android:text="🏠 Default Home"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="@drawable/tvos_card_background"
+            android:focusable="true"/>
+    </LinearLayout>
 
 </LinearLayout>
