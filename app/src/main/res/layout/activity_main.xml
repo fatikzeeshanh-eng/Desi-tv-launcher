@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <!-- Changing Dynamic Wallpaper Background -->
+    <ImageView
+        android:id="@+id/bgImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:alpha="0.6"/>
+
+    <!-- Dark Gradient Overlay for readability -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#99000000"/>
+
+    <!-- Top Bar: Clock & Controls -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="32dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/txtClock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12:00"
+            android:textColor="#FFFFFF"
+            android:textSize="28sp"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/btnControlCenter"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="#33FFFFFF"
+            android:text="CC"
+            android:textColor="#FFFFFF"
+            android:focusable="true"/>
+
+        <Button
+            android:id="@+id/btnSettings"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="16dp"
+            android:background="#33FFFFFF"
+            android:text="⚙"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:focusable="true"/>
+    </LinearLayout>
+
+    <!-- Center View (Standby Mode / Active Widget Area) -->
+    <LinearLayout
+        android:id="@+id/standbyContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="STANDBY"
+            android:textColor="#888888"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/txtStandbyClock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="09:41"
+            android:textColor="#FFFFFF"
+            android:textSize="80sp"/>
+    </LinearLayout>
+
+    <!-- Floating tvOS Style Bottom Dock -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:background="#22000000"
+        android:paddingBottom="16dp">
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:id="@+id/dockLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"/>
+        </HorizontalScrollView>
+    </LinearLayout>
+
+</RelativeLayout>
