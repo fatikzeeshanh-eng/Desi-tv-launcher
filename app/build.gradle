@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkSdkVersion 28
     defaultConfig {
         applicationId "com.indiatv.launcher"
         minSdkVersion 19
@@ -17,4 +17,7 @@ android {
 }
 
 dependencies {
+    // Framework-only build: no support libraries needed for this launcher.
+    // androidx.legacy:legacy-support-v4 removed because gradle.properties sets android.useAndroidX=false
+    // and the code uses only android.* framework APIs.
 }
