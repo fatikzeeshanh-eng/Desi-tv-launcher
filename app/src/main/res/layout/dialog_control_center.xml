@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#E61C1C1E"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Control Center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/ccBtnWallpaper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Change Wallpaper Style"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/ccBtnStandby"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Toggle Standby Mode"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:id="@+id/ccBtnSystemSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Android Settings" />
+
+</LinearLayout>
