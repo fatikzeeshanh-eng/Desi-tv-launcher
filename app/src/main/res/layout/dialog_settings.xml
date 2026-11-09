@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Launcher Settings"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
+
+        <Button android:id="@+id/btnToggleTheme"   android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Theme: Dark"   android:layout_marginBottom="8dp" />
+        <Button android:id="@+id/btnToggleWallpaper" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Wallpaper: Next" android:layout_marginBottom="8dp" />
+        <Button android:id="@+id/btnToggleIconSize" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Icon Size: Medium" android:layout_marginBottom="8dp" />
+        <Button android:id="@+id/btnToggleSort"     android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Sort: A-Z"   android:layout_marginBottom="8dp" />
+        <Button android:id="@+id/btnToggleAutoStandby" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Auto Standby: On" android:layout_marginBottom="8dp" />
+        <Button android:id="@+id/btnSystemSettings" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Open System Settings" android:layout_marginBottom="8dp" />
+        <Button android:id="@+id/btnCloseSettings"  android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Close" />
+    </LinearLayout>
+</ScrollView>
