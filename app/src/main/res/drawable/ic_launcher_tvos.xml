@@ -1,24 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="108dp"
-    android:height="108dp"
-    android:viewportWidth="108"
-    android:viewportHeight="108">
-    <path
-        android:fillColor="#1C1C1E"
-        android:pathData="M24,12 h60 a12,12 0 0,1 12,12 v60 a12,12 0 0,1 -12,12 h-60 a12,12 0 0,1 -12,-12 v-60 a12,12 0 0,1 12,-12 z"/>
-    <path
-        android:strokeColor="#FFFFFF"
-        android:strokeWidth="2"
-        android:fillColor="#00000000"
-        android:pathData="M24,12 h60 a12,12 0 0,1 12,12 v60 a12,12 0 0,1 -12,12 h-60 a12,12 0 0,1 -12,-12 v-60 a12,12 0 0,1 12,-12 z"/>
-    <path
-        android:fillColor="#007AFF"
-        android:pathData="M34,34 h40 v26 h-40 z"/>
-    <path
-        android:fillColor="#FF9933"
-        android:pathData="M34,66 h40 v3 h-40 z"/>
-    <path
-        android:fillColor="#138808"
-        android:pathData="M34,69 h40 v3 h-40 z"/>
-</vector>
+<!-- API 19 safe: layer-list + shape drawables (no vector support on KitKat) -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- dark rounded TV body -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#1C1C1E" />
+            <corners android:radius="8px" />
+            <stroke android:width="1px" android:color="#80FFFFFF" />
+        </shape>
+    </item>
+
+    <!-- blue screen -->
+    <item android:left="10px" android:right="10px" android:top="10px" android:bottom="20px">
+        <shape android:shape="rectangle">
+            <solid android:color="#007AFF" />
+            <corners android:radius="3px" />
+        </shape>
+    </item>
+
+    <!-- saffron bar -->
+    <item android:left="10px" android:right="10px" android:top="34px" android:bottom="16px">
+        <shape android:shape="rectangle">
+            <solid android:color="#FF9933" />
+        </shape>
+    </item>
+
+    <!-- green bar -->
+    <item android:left="10px" android:right="10px" android:top="38px" android:bottom="12px">
+        <shape android:shape="rectangle">
+            <solid android:color="#138808" />
+        </shape>
+    </item>
+</layer-list>
