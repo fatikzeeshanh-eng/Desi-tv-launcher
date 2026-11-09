@@ -2,7 +2,7 @@
 
 Apple TV (tvOS) style launcher for **Android 4.4 KitKat (API 19)** — built with native Android views for buttery-smooth D-pad focus navigation. No external dependencies.
 
-Made in India 🇮🇳
+Made in Pakistan 🇵🇰 
 
 ## Features
 
