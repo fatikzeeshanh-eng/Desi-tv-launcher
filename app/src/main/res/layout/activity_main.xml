@@ -1,298 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rootLayout"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0B0B0E">
+    android:scrollbars="none">
 
-    <!-- Cinematic Background Wallpaper -->
-    <ImageView
-        android:id="@+id/bgImageView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:alpha="0.45"/>
-
-    <!-- Dark Vignette / Frosted Overlay -->
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#88000000"/>
-
-    <!-- Top Navigation Header: Clock, Developer Tag & Controls -->
     <LinearLayout
+        android:id="@+id/rootContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingLeft="56dp"
-        android:paddingRight="56dp"
-        android:paddingTop="40dp"
-        android:gravity="center_vertical">
+        android:orientation="vertical"
+        android:paddingTop="24dp">
 
-        <!-- Real-time tvOS Clock -->
-        <TextView
-            android:id="@+id/txtClock"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="09:41"
-            android:textColor="#FFFFFF"
-            android:textSize="36sp"
-            android:textStyle="bold"/>
-
-        <!-- Developer Credit Pill -->
+        <!-- ============ HEADER: clock + search ============ -->
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="28dp"
-            android:background="@drawable/tvos_card_background"
-            android:paddingLeft="14dp"
-            android:paddingRight="14dp"
-            android:paddingTop="6dp"
-            android:paddingBottom="6dp"
-            android:gravity="center_vertical">
-            
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🇮🇳 Crafted by Indian Developer"
-                android:textColor="#EBEBF5"
-                android:textSize="13sp"
-                android:textStyle="bold"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-
-        <!-- Control Center Button -->
-        <Button
-            android:id="@+id/btnControlCenter"
-            android:layout_width="52dp"
-            android:layout_height="52dp"
-            android:background="@drawable/tvos_card_background"
-            android:text="🎛"
-            android:textColor="#FFFFFF"
-            android:textSize="22sp"
-            android:focusable="true"/>
-
-        <!-- Settings Button -->
-        <Button
-            android:id="@+id/btnSettings"
-            android:layout_width="52dp"
-            android:layout_height="52dp"
-            android:layout_marginLeft="16dp"
-            android:background="@drawable/tvos_card_background"
-            android:text="⚙"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:focusable="true"/>
-    </LinearLayout>
-
-    <!-- 5 Standby Features Container (Left: Clock & Weather, Right: Calendar & Notes) -->
-    <LinearLayout
-        android:id="@+id/standbyContainer"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingLeft="80dp"
-        android:paddingRight="80dp"
-        android:paddingTop="80dp"
-        android:paddingBottom="140dp"
-        android:visibility="gone">
-
-        <!-- LEFT SIDE: Feature 1 (Clock) & Feature 2 (Weather Widget) -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="DESI TV STANDBY"
-                android:textColor="#8E8E93"
-                android:letterSpacing="0.15"
-                android:textSize="14sp"
-                android:textStyle="bold"/>
-
-            <!-- Feature 1: Huge Standby Clock -->
-            <TextView
-                android:id="@+id/txtStandbyClock"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="09:41"
-                android:textColor="#FFFFFF"
-                android:textSize="88sp"
-                android:textStyle="bold"
-                android:layout_marginTop="4dp"/>
-
-            <!-- Feature 2: Weather & Location Info Widget -->
-            <LinearLayout
-                android:layout_width="320dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/tvos_card_background"
-                android:orientation="horizontal"
-                android:padding="16dp"
-                android:gravity="center_vertical"
-                android:layout_marginTop="20dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="⛅"
-                    android:textSize="32sp"
-                    android:layout_marginRight="16dp"/>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/txtWeatherTemp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="32°C • Sunny"
-                        android:textColor="#FFFFFF"
-                        android:textSize="16sp"
-                        android:textStyle="bold"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Multan, Punjab (Desi Edition)"
-                        android:textColor="#8E8E93"
-                        android:textSize="12sp"
-                        android:layout_marginTop="2dp"/>
-                </LinearLayout>
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <!-- CENTER SPACER -->
-        <View
-            android:layout_width="40dp"
-            android:layout_height="match_parent"/>
-
-        <!-- RIGHT SIDE: Feature 3 (Calendar), Feature 4 (Daily Note), Feature 5 (Quick Standby Shelf) -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:orientation="vertical">
-
-            <!-- Feature 3: Calendar Widget (Month, Day, Date) -->
-            <LinearLayout
-                android:layout_width="340dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/tvos_card_background"
-                android:orientation="vertical"
-                android:padding="20dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:id="@+id/txtCalendarMonth"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="NOVEMBER 2026"
-                        android:textColor="#FF9933"
-                        android:textSize="14sp"
-                        android:textStyle="bold"/>
-
-                    <TextView
-                        android:id="@+id/txtCalendarDay"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="SUNDAY"
-                        android:textColor="#8E8E93"
-                        android:textSize="12sp"
-                        android:textStyle="bold"/>
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/txtCalendarDateNum"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="08"
-                    android:textColor="#FFFFFF"
-                    android:textSize="54sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="4dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="📅 Live Android 4.4 Calendar Sync"
-                    android:textColor="#8E8E93"
-                    android:textSize="11sp"
-                    android:layout_marginTop="4dp"/>
-            </LinearLayout>
-
-            <!-- Feature 4: Daily Note / Tech Quote Widget -->
-            <LinearLayout
-                android:layout_width="340dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/tvos_card_background"
-                android:orientation="vertical"
-                android:padding="16dp"
-                android:layout_marginTop="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="💡 Standby Memo / Note"
-                    android:textColor="#138808"
-                    android:textSize="12sp"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="“Optimized for 512MB RAM Android 4.4 TV Boards. Press any remote button to return.”"
-                    android:textColor="#EBEBF5"
-                    android:textSize="12sp"
-                    android:layout_marginTop="6dp"/>
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <!-- Floating tvOS Bottom Dock Shelf -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:layout_alignParentBottom="true"
-        android:gravity="center_vertical"
-        android:background="#15000000"
-        android:paddingBottom="24dp">
-
-        <HorizontalScrollView
+            android:id="@+id/headerRow"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="none"
-            android:fillViewport="true">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp">
+
+            <TextView
+                android:id="@+id/txtClock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:text="12:00 AM" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <EditText
+                android:id="@+id/searchBar"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:hint="Search apps..."
+                android:textColor="#FFFFFF"
+                android:textColorHint="#80FFFFFF"
+                android:textSize="14sp"
+                android:background="@drawable/tvos_card_background"
+                android:padding="8dp"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:imeOptions="actionSearch" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <!-- ============ FEATURED BANNER ============ -->
+        <FrameLayout
+            android:id="@+id/featuredBanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <LinearLayout
-                android:id="@+id/dockLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:paddingLeft="56dp"
-                android:paddingRight="56dp"/>
-        </HorizontalScrollView>
-    </LinearLayout>
+                android:id="@+id/bannerInner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/tvos_card_background"
+                android:padding="24dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp">
 
-</RelativeLayout>
+                <TextView
+                    android:id="@+id/bannerTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Featured"
+                    android:textSize="26sp"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/bannerSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your apps, the Apple TV way"
+                    android:textSize="14sp"
+                    android:textColor="#B3FFFFFF" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp" />
+
+                <TextView
+                    android:id="@+id/bannerHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Remote D-pad se navigate karein • MENU = Settings • BACK = Standby"
+                    android:textSize="12sp"
+                    android:textColor="#80FFFFFF" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="24dp" />
+
+        <!-- ============ APP ROWS (added in code) ============ -->
+        <LinearLayout
+            android:id="@+id/rowsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+    </LinearLayout>
+</ScrollView>
