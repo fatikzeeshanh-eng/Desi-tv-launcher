@@ -1,7 +1,6 @@
 package com.indiatv.launcher;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,6 +13,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -34,7 +34,7 @@ import java.util.Locale;
  *   D-pad  = move focus (native focus engine does the work)
  *   CENTER/ENTER = open focused app
  *   MENU   = launcher settings dialog
- *   BACK   = standby clock overlay (BACK again or any key wakes)
+ *   BACK   = standby clock overlay (any key wakes)
  *   SEARCH = focus the search bar
  * Long-press CENTER on an app = toggle favorite.
  */
@@ -79,9 +79,10 @@ public class MainActivity extends Activity {
 
         setupStandbyOverlay();
         setupSearch();
+        setupRemoteKeys();
         loadAndRender();
         startClock();
-        setupRemoteKeys();
+        applyTheme();
 
         // Keep screen on while the launcher is visible (it is a TV/launcher).
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -93,7 +94,6 @@ public class MainActivity extends Activity {
         allApps = repo.loadApps(settings.isAlphabetical());
         favorites = repo.getFavorites(allApps);
         recents = repo.getRecents(allApps);
-
         renderRows();
     }
 
@@ -105,7 +105,7 @@ public class MainActivity extends Activity {
         if (!favorites.isEmpty()) addRow("Favorites", favorites);
         if (!recents.isEmpty()) addRow("Recent", recents);
         addRow("Apps", visible);
-        if (visible.isEmpty()) {
+        if (query.length() > 0 && visible.isEmpty()) {
             Toast.makeText(this, "Koi app nahi mila: " + query, Toast.LENGTH_SHORT).show();
         }
 
@@ -128,7 +128,7 @@ public class MainActivity extends Activity {
         tv.setPadding(dp(40), dp(12), 0, dp(6));
         rowsContainer.addView(tv);
 
-        LinearLayout scroller = (LinearLayout) getLayoutInflater()
+        View scroller = getLayoutInflater()
                 .inflate(R.layout.row_tvos_apps, rowsContainer, false);
         LinearLayout items = (LinearLayout) scroller.findViewById(R.id.rowItems);
         int iconDp = settings.getIconSizeDp();
@@ -296,7 +296,7 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean dispatchKeyEvent(KeyEvent e) {
-        // Any key while in standby wakes it up (except letting BACK through).
+        // Any key while in standby wakes it up.
         if (standbyMode && e.getAction() == KeyEvent.ACTION_DOWN) {
             wakeUp();
             return true;
@@ -315,7 +315,7 @@ public class MainActivity extends Activity {
                         enterStandby();
                         return true;
                     }
-                    // fall-through: clear search instead
+                    // search box had text: clear it instead
                     searchBar.setText("");
                     return true;
             }
@@ -336,9 +336,12 @@ public class MainActivity extends Activity {
     }
 
     private void applyTheme() {
-        findViewById(R.id.rootContainer).setBackgroundColor(settings.isDarkTheme() ? 0xFF000000 : 0xFFF2F2F7);
-        ((LinearLayout) findViewById(R.id.rootContainer))
-                .setBackgroundDrawable(settings.isDarkTheme() ? settings.wallpaper() : null);
+        LinearLayout root = (LinearLayout) findViewById(R.id.rootContainer);
+        if (settings.isDarkTheme()) {
+            root.setBackgroundDrawable(settings.wallpaper());
+        } else {
+            root.setBackgroundColor(0xFFF2F2F7);
+        }
     }
 
     private int dp(int v) {
